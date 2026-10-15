@@ -1,0 +1,290 @@
+{
+  "common": {
+    "appName": "KhaleejiBot",
+    "tagline": "Arabic-first AI chatbots for UAE businesses",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "back": "Back",
+    "copy": "Copy",
+    "copied": "Copied",
+    "optional": "optional",
+    "switchLanguage": "العربية",
+    "genericError": "Something went wrong. Please try again.",
+    "forbidden": "Only organization owners and admins can do that."
+  },
+  "landing": {
+    "eyebrow": "Built in the UAE, for the UAE",
+    "title": "An AI teammate that speaks your customers' Arabic",
+    "subtitle": "Train a bilingual chatbot on your menu, prices and policies. Deploy it on your website and WhatsApp in minutes. It understands Emirati dialect, Arabizi and voice notes — and hands over to your team the moment it isn't sure.",
+    "ctaStart": "Start free",
+    "ctaSignIn": "I have an account",
+    "features": {
+      "dialects": {
+        "title": "Fluent Khaleeji",
+        "body": "Replies in Emirati, Levantine or formal Arabic, Arabizi and English — mirroring how each customer writes."
+      },
+      "voice": {
+        "title": "Voice notes",
+        "body": "Customers send Arabic voice notes on WhatsApp or the widget; Whisper transcribes them and the bot answers."
+      },
+      "whatsapp": {
+        "title": "WhatsApp Cloud API",
+        "body": "Connect your business number and answer customers where they already are."
+      },
+      "knowledge": {
+        "title": "Your own knowledge",
+        "body": "Upload menus, price lists, return policies and FAQs. Answers are grounded in your data — never guessed."
+      },
+      "handoff": {
+        "title": "Confident or it hands off",
+        "body": "Low confidence, frustration or a request for a manager instantly routes the chat to a person with an AI summary."
+      },
+      "inbox": {
+        "title": "Live team inbox",
+        "body": "Agents see handoffs in real time, take over, reply, and hand back to the AI when done."
+      }
+    },
+    "footer": "© KhaleejiBot. Made for businesses across the seven emirates."
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "loginSubtitle": "Sign in to manage your bots and inbox.",
+    "signupTitle": "Create your account",
+    "signupSubtitle": "Free to start. No card required.",
+    "email": "Work email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters.",
+    "noAccount": "New to KhaleejiBot?",
+    "haveAccount": "Already have an account?",
+    "checkEmail": "Check your inbox to confirm your email, then sign in.",
+    "errors": {
+      "invalidCredentials": "Incorrect email or password.",
+      "invalidInput": "Enter a valid email and a password of at least 8 characters.",
+      "generic": "We couldn't complete that. Please try again."
+    }
+  },
+  "onboarding": {
+    "title": "Set up your business",
+    "subtitle": "This is the organization your bots, knowledge and team belong to.",
+    "orgName": "Business name",
+    "orgNamePlaceholder": "e.g. Al Fanar Restaurant",
+    "create": "Continue"
+  },
+  "nav": {
+    "overview": "Overview",
+    "inbox": "Inbox",
+    "bots": "Bots",
+    "settings": "Settings"
+  },
+  "overview": {
+    "title": "Overview",
+    "subtitle": "How your bots are doing right now.",
+    "stats": {
+      "bots": "Bots",
+      "open": "Open conversations",
+      "pending": "Waiting for a human",
+      "aiHandled": "Handled by AI (7 days)"
+    },
+    "recentHandoffs": "Recent handoffs",
+    "noHandoffs": "No handoffs yet. The AI is handling everything.",
+    "gettingStarted": "Getting started",
+    "steps": {
+      "createBot": "Create your first bot",
+      "addKnowledge": "Add your menu, prices or FAQs",
+      "deploy": "Add the widget to your site or connect WhatsApp"
+    },
+    "openInbox": "Open inbox"
+  },
+  "bots": {
+    "title": "Bots",
+    "subtitle": "Each bot has its own persona, knowledge and channels.",
+    "new": "New bot",
+    "newTitle": "Create a bot",
+    "create": "Create bot",
+    "empty": "You don't have any bots yet.",
+    "limitReached": "Your {plan} plan includes {limit, plural, one {# bot} other {# bots}}. Upgrade to add more.",
+    "chunks": "{count, plural, =0 {No knowledge yet} one {# knowledge chunk} other {# knowledge chunks}}",
+    "whatsappBadge": "WhatsApp",
+    "created": "Bot created.",
+    "updated": "Changes saved.",
+    "deleted": "Bot deleted.",
+    "delete": "Delete bot",
+    "deleteConfirm": "Delete this bot, its knowledge and all its conversations? This can't be undone.",
+    "persona": {
+      "emirati_khaleeji": "Emirati / Khaleeji",
+      "levantine": "Levantine",
+      "msa_formal": "Formal Arabic (MSA)",
+      "bilingual_auto": "Mirror the customer"
+    },
+    "fields": {
+      "name": "Bot name",
+      "persona": "Dialect & persona",
+      "personaHelp": "How the bot speaks. Every persona switches to English or Arabizi when the customer does.",
+      "instructions": "Business instructions",
+      "instructionsHelp": "Tone, what to promote, what never to discuss. Facts like prices belong in Knowledge.",
+      "instructionsPlaceholder": "We are a family restaurant in Al Barsha. Always suggest our luqaimat for dessert. Never promise delivery times outside Dubai.",
+      "threshold": "Handoff confidence threshold",
+      "thresholdHelp": "If the AI is less confident than this that your knowledge answers the question, a human takes over. Higher = more handoffs.",
+      "welcomeAr": "Welcome message (Arabic)",
+      "welcomeEn": "Welcome message (English)",
+      "handoffAr": "Handoff message (Arabic)",
+      "handoffEn": "Handoff message (English)"
+    },
+    "tabs": {
+      "settings": "Settings",
+      "knowledge": "Knowledge",
+      "deploy": "Deploy",
+      "test": "Try it"
+    }
+  },
+  "knowledge": {
+    "title": "Knowledge base",
+    "subtitle": "The bot only states facts it finds here. Re-uploading a source with the same name replaces it.",
+    "sourceName": "Source name",
+    "sourceNamePlaceholder": "e.g. Menu & prices",
+    "content": "Paste text",
+    "contentPlaceholder": "Machboos laham — AED 65\nChicken madrooba — AED 48\nWe're open daily 12pm–1am…",
+    "file": "…or upload a file",
+    "fileHelp": ".txt, .md, .csv or .json, up to 2 MB.",
+    "add": "Add to knowledge",
+    "adding": "Embedding…",
+    "added": "Added {count, plural, one {# chunk} other {# chunks}} from “{source}”.",
+    "sources": "Sources",
+    "empty": "No knowledge yet. Add your menu, price list, policies or FAQs.",
+    "chunkCount": "{count, plural, one {# chunk} other {# chunks}}",
+    "deleteSource": "Remove",
+    "deleted": "Source removed.",
+    "errors": {
+      "missing": "Add a source name and some text or a file.",
+      "fileType": "Upload a .txt, .md, .csv or .json file.",
+      "fileSize": "Files must be 2 MB or smaller."
+    }
+  },
+  "deploy": {
+    "widgetTitle": "Website widget",
+    "widgetHelp": "Paste this before </body> on every page where the chat bubble should appear. Set data-lang to \"en\" for an English-first widget.",
+    "whatsappTitle": "WhatsApp",
+    "whatsappHelp": "Inbound messages to your connected WhatsApp number are answered by one bot.",
+    "makeDefault": "Answer WhatsApp with this bot",
+    "isDefault": "This bot answers your WhatsApp number.",
+    "notConnected": "WhatsApp isn't connected yet. Add your phone number ID and access token in Settings.",
+    "goToSettings": "Open settings"
+  },
+  "playground": {
+    "help": "This is the live widget. Conversations you start here appear in the inbox like any customer's."
+  },
+  "inbox": {
+    "title": "Inbox",
+    "filters": {
+      "attention": "Needs a human",
+      "active": "With an agent",
+      "ai": "AI handling",
+      "resolved": "Resolved"
+    },
+    "empty": "Nothing here right now.",
+    "select": "Select a conversation",
+    "takeOver": "Take over",
+    "handBack": "Hand back to AI",
+    "resolve": "Resolve",
+    "replyPlaceholder": "Type your reply…",
+    "send": "Send",
+    "takeOverToReply": "Take over the conversation to reply.",
+    "aiSummary": "AI summary",
+    "handoffReason": "Why it was handed off",
+    "anonymous": "Website visitor",
+    "voiceNote": "Voice note",
+    "transcript": "Transcript",
+    "confidence": "confidence {value}",
+    "newHandoff": "A customer needs a human",
+    "live": "Live",
+    "reconnecting": "Reconnecting…",
+    "channel": {
+      "web_widget": "Website",
+      "whatsapp": "WhatsApp"
+    },
+    "status": {
+      "AI_ACTIVE": "AI",
+      "HUMAN_PENDING": "Waiting",
+      "HUMAN_ACTIVE": "Agent",
+      "RESOLVED": "Resolved"
+    },
+    "sender": {
+      "customer": "Customer",
+      "ai": "AI",
+      "human_agent": "Agent"
+    },
+    "errors": {
+      "send": "Your reply couldn't be sent.",
+      "whatsapp": "Saved, but WhatsApp delivery failed: check your WhatsApp settings."
+    },
+    "triggers": {
+      "model_requested": "The AI decided a person should handle this",
+      "frustration": "Customer seems frustrated",
+      "low_confidence": "Low confidence ({detail})",
+      "explicit_human_request": "Customer asked for a person",
+      "ai_unavailable": "The AI was unavailable"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "org": {
+      "title": "Organization",
+      "name": "Business name",
+      "plan": "Plan",
+      "plans": {
+        "starter": "Starter",
+        "growth": "Growth",
+        "enterprise": "Enterprise"
+      }
+    },
+    "whatsapp": {
+      "title": "WhatsApp Cloud API",
+      "help": "From Meta Business Suite → WhatsApp Manager → API setup. Use a permanent System User token.",
+      "phoneNumberId": "Phone number ID",
+      "accessToken": "Access token",
+      "tokenSet": "A token is saved. Enter a new one to replace it.",
+      "tokenPlaceholder": "EAAG…",
+      "webhookUrl": "Webhook callback URL",
+      "webhookHelp": "Set this as the callback URL in your Meta app, subscribe to the “messages” field, and use your WHATSAPP_VERIFY_TOKEN as the verify token.",
+      "saved": "WhatsApp settings saved.",
+      "taken": "That phone number ID is already connected to another organization."
+    },
+    "team": {
+      "title": "Team",
+      "help": "Agents can answer conversations. Admins can also manage bots, knowledge and settings.",
+      "email": "Email",
+      "role": "Role",
+      "invite": "Send invite",
+      "invited": "Invitation sent.",
+      "roles": {
+        "owner": "Owner",
+        "admin": "Admin",
+        "agent": "Agent"
+      },
+      "you": "you"
+    }
+  },
+  "widget": {
+    "placeholder": "Type a message…",
+    "send": "Send",
+    "record": "Record a voice note",
+    "stopRecording": "Stop and send",
+    "cancelRecording": "Cancel recording",
+    "recording": "Recording…",
+    "thinking": "Typing…",
+    "voiceNote": "Voice note",
+    "handoffBanner": "You're being connected to a member of our team.",
+    "agentBanner": "You're chatting with our team.",
+    "resolvedBanner": "This conversation was closed. Send a message to start a new one.",
+    "micDenied": "Microphone access was blocked. You can still type your message.",
+    "error": "Message not sent. Please try again.",
+    "rateLimited": "You're sending messages too quickly. Please wait a moment.",
+    "poweredBy": "Powered by KhaleejiBot",
+    "unavailable": "This chat is unavailable right now."
+  }
+}
