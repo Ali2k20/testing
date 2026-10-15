@@ -15,7 +15,7 @@ import { requireKey, serverEnv } from "@/lib/env";
 
 export const EMBEDDING_DIMENSIONS = 1536;
 
-const DEFAULT_CHAT_MODELS = { google: "gemini-2.5-flash", openai: "gpt-4o" } as const;
+const DEFAULT_CHAT_MODELS = { google: "gemini-3.8-flash", openai: "gpt-4o" } as const;
 const DEFAULT_TRANSCRIPTION_MODELS = { groq: "whisper-large-v3-turbo", openai: "whisper-1" } as const;
 const DEFAULT_EMBEDDING_MODELS = { openai: "text-embedding-3-small", google: "gemini-embedding-001" } as const;
 

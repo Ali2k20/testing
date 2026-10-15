@@ -9,7 +9,7 @@ live, bilingual team inbox.
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · next-intl
 (Arabic RTL / English LTR, IBM Plex Sans Arabic) · Supabase (Postgres, Auth, RLS,
-pgvector, Realtime, Storage) · Vercel AI SDK 7 (Gemini 2.5 Flash / GPT-4o, Whisper
+pgvector, Realtime, Storage) · Vercel AI SDK 7 (Gemini 3.8 Flash / GPT-4o, Whisper
 Large-v3 Turbo, OpenAI/Gemini embeddings).
 
 ---
