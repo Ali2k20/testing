@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FrsLogo } from "./frs-logo";
 import { NewsletterForm } from "./newsletter-form";
 import { collections } from "@/lib/collections";
 import { categoryLabels, categoryOrder } from "@/lib/products";
@@ -85,12 +86,7 @@ export function SiteFooter() {
         </p>
 
         {/* The name closes the page at full width. */}
-        <p
-          aria-hidden
-          className="mt-16 select-none font-display leading-[0.78] tracking-[-0.03em] text-fg text-[clamp(7rem,52vw,48rem)]"
-        >
-          FRS
-        </p>
+        <FrsLogo className="mt-16 block h-auto w-full text-fg" title={site.name} />
 
         <div className="flex flex-col gap-2 py-6 text-[13px] text-fg-muted sm:flex-row sm:items-center sm:justify-between">
           <p>

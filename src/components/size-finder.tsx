@@ -51,7 +51,7 @@ export function SizeFinder({ initialHeight = 163 }: { initialHeight?: number }) 
             >
               <span
                 className={`block font-display leading-none tracking-[-0.03em] tabular-nums text-[clamp(3.25rem,5vw,4.75rem)] transition-colors duration-300 ${
-                  lit ? "text-talli" : "text-fg-muted/60"
+                  lit ? "text-talli" : "text-fg-muted/70"
                 }`}
               >
                 {row.size}

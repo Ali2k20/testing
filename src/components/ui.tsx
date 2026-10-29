@@ -5,7 +5,7 @@ type ButtonTone = "solid" | "outline" | "ghost" | "gold";
 type ButtonSize = "sm" | "md" | "lg";
 
 const toneClasses: Record<ButtonTone, string> = {
-  solid: "bg-talli text-ground hover:bg-talli-soft",
+  solid: "bg-fg text-ground hover:bg-fg-soft",
   outline: "border border-fg-muted text-fg hover:border-fg hover:bg-fg hover:text-ground",
   ghost: "text-fg hover:bg-panel",
   gold: "bg-talli text-ground hover:bg-talli-soft",
@@ -78,8 +78,8 @@ export function Stars({ rating, className = "" }: { rating: number; className?: 
         <svg key={step} viewBox="0 0 20 20" className="h-3.5 w-3.5">
           <defs>
             <linearGradient id={`star-${step}-${Math.round(rating * 10)}`}>
-              <stop offset={`${Math.max(0, Math.min(1, rating - step + 1)) * 100}%`} stopColor="#CFAB62" />
-              <stop offset={`${Math.max(0, Math.min(1, rating - step + 1)) * 100}%`} stopColor="#4A443D" />
+              <stop offset={`${Math.max(0, Math.min(1, rating - step + 1)) * 100}%`} stopColor="#7E6331" />
+              <stop offset={`${Math.max(0, Math.min(1, rating - step + 1)) * 100}%`} stopColor="#C9BCA8" />
             </linearGradient>
           </defs>
           <path
@@ -106,7 +106,7 @@ export function Badge({
   const tones = {
     ink: "bg-fg text-ground",
     gold: "bg-talli text-ground",
-    sale: "bg-[#9E3A42] text-fg",
+    sale: "bg-[#8E2F38] text-white",
     quiet: "bg-ground/90 text-fg border border-line",
   } as const;
   return (

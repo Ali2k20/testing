@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark room: the black of the abaya is the ground, and the clothes and the
-     talli gold are the only light. Gold is reserved for actions. */
-  --color-fg: #e8e6e3;
-  --color-fg-soft: #d5d1ca;
-  --color-fg-muted: #aaa59d;
-  --color-line: #3a352f;
-  --color-line-soft: #292520;
-  --color-panel: #181614;
-  --color-panel-deep: #221f1b;
-  --color-ground: #0e0d0c;
-  --color-talli: #cfab62;
-  --color-talli-soft: #e3c98f;
-  --color-rose: #d9a8a1;
-  --color-olive: #b8c08f;
-  --color-emerald: #7fc0ad;
+  /* Brand: the cream and black of the FRS wordmark. The garments are shot
+     low-key on dark grounds, so on cream they read like framed photographs.
+     Black carries the actions; a deep talli gold marks the few lit details. */
+  --color-fg: #111010;
+  --color-fg-soft: #2b2724;
+  --color-fg-muted: #5e564d;
+  --color-line: #c9bca8;
+  --color-line-soft: #dcd1c0;
+  --color-panel: #e3d9c9;
+  --color-panel-deep: #d9cdba;
+  --color-ground: #ebe3d6;
+  --color-talli: #7e6331;
+  --color-talli-soft: #a48550;
+  --color-rose: #9a5c55;
+  --color-olive: #4f5638;
+  --color-emerald: #1f4d42;
 
   --font-display: var(--font-bodoni), "Bodoni 72", Didot, "Times New Roman", serif;
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -58,7 +59,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FrsLogo } from "./frs-logo";
 import { SearchDialog } from "./search-dialog";
 import { useStore } from "@/lib/store";
 import { site } from "@/lib/site";
@@ -59,9 +60,7 @@ export function SiteHeader() {
         </button>
 
         <Link href="/" className="shrink-0 text-center" aria-label={`${site.name} home`}>
-          <span className="font-display text-3xl leading-none tracking-[0.06em] text-fg sm:text-4xl">
-            FRS
-          </span>
+          <FrsLogo className="h-6 w-auto text-fg sm:h-7" />
         </Link>
 
         <div className="flex flex-1 items-center justify-end gap-1 sm:gap-3">
@@ -132,8 +131,8 @@ export function SiteHeader() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <Link href="/" onClick={() => setMenuOpen(false)} className="font-display text-2xl tracking-[0.06em]">
-              FRS
+            <Link href="/" onClick={() => setMenuOpen(false)} aria-label={`${site.name} home`}>
+              <FrsLogo className="h-6 w-auto" />
             </Link>
             <button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu" className="p-2">
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.4">

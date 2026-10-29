@@ -1,23 +1,24 @@
-# FRS design system: the dark room
+# FRS design system
 
 Source of truth for every FRS page. Page-specific rules go in `pages/<page>.md` and override this file.
 
 ## Idea
 
-The black of the abaya is the room. The whole site sits on a soft black, and the only light comes
-from the clothes: the gold of hand-worked talli and the colours of the mukhawar. Most abaya shops
-are cream, beige and gold on white; FRS is the opposite.
+The brand is the cream and black of the FRS wordmark (`public/brand/frs-wordmark.svg`,
+`src/components/frs-logo.tsx`). The garments are shot low-key on dark grounds, so on the cream page
+each one reads like a framed photograph, and in the hero strip only the centred piece is lit while
+the rest fade into the cream. The Arabic display lettering carries the logo's weight.
 
 ## Colour (tokens in `src/app/globals.css`)
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `ground` | `#0e0d0c` | Page background |
-| `panel` / `panel-deep` | `#181614` / `#221f1b` | A step up in tone for bands, drawers and the scrolled header. No lines between surfaces. |
-| `fg` | `#e8e6e3` | All running text, at full strength |
-| `fg-soft` / `fg-muted` | `#d5d1ca` / `#aaa59d` | Supporting sentences, then secondary notes only |
-| `talli` | `#cfab62` | **Actions only**: primary buttons, the lit size, stock warnings |
-| `line` | `#3a352f` | Form fields and real tables only |
+| `ground` | `#ebe3d6` | Page background, the brand cream |
+| `panel` / `panel-deep` | `#e3d9c9` / `#d9cdba` | A step down in tone for bands, drawers and the scrolled header. No lines between surfaces. |
+| `fg` | `#111010` | All running text, the logo, and primary buttons |
+| `fg-soft` / `fg-muted` | `#2b2724` / `#5e564d` | Supporting sentences, then secondary notes only |
+| `talli` | `#7e6331` | A deep gold for the few lit details: the matched size, stars, stock warnings |
+| `line` | `#c9bca8` | Form fields and real tables only |
 
 Inverted pairs (`bg-fg text-ground`) are used for one light card per screen at most.
 
@@ -34,9 +35,11 @@ Garments are drawn as low-key studio shots (`src/components/product-art.tsx`): a
 one pool of light behind each piece. Replace them with real photography shot the same way, on a
 dark ground with one light, when it exists.
 
+The favicon is the swash R from the wordmark on cream (`src/app/icon.svg`).
+
 ## Components
 
-- Buttons: square corners, flat fill. `solid` is talli gold; `outline` is a muted border. 44px minimum height.
+- Buttons: square corners, flat fill. `solid` is black on cream; `outline` is a muted border. 44px minimum height.
 - Navigation: a plain bar with the wordmark, a few links and icons. No blur and no hairline.
 - The footer ends with the name at full width.
 
@@ -48,4 +51,4 @@ dark ground with one light, when it exists.
 ## Never
 
 Gradients on surfaces, shadows on things at rest, glass or blur, icon-topped card rows, tiny
-letter-spaced capitals, emoji, cream or beige grounds, and gold on labels.
+letter-spaced capitals, emoji, and gold on labels.
