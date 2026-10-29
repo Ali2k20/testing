@@ -10,20 +10,22 @@ const help = [
   { href: "/fabric-care", label: "Fabric care" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact us" },
+  { href: "/about", label: "Our story" },
 ];
+
+const payments = ["Visa", "Mastercard", "Apple Pay", "Tabby", "Tamara", "Cash on delivery"];
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-line bg-sand">
-      <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
-            <p className="font-display text-4xl tracking-[0.4em]">FRS</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-muted">
-              A Dubai atelier making abayas and mukhawar in small runs. Cut, sewn and finished in Al
-              Quoz — not imported and relabelled.
+    <footer className="mt-32 bg-panel">
+      <div className="mx-auto max-w-[1400px] px-5 pt-20 lg:px-10">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="max-w-md">
+            <p className="text-base leading-relaxed text-fg">
+              Abayas and mukhawar cut, sewn and finished in small runs at our studio in Al Quoz,
+              Dubai.
             </p>
-            <div className="mt-6">
+            <div className="mt-8">
               <NewsletterForm />
             </div>
           </div>
@@ -37,9 +39,6 @@ export function SiteFooter() {
             <Link href="/shop" className="link-underline">
               Everything
             </Link>
-          </FooterColumn>
-
-          <FooterColumn title="Collections">
             {collections.map((collection) => (
               <Link
                 key={collection.slug}
@@ -57,60 +56,47 @@ export function SiteFooter() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/about" className="link-underline">
-              Our story
-            </Link>
           </FooterColumn>
-        </div>
 
-        <div className="mt-14 grid gap-8 border-t border-line pt-10 md:grid-cols-3">
-          <div className="text-xs leading-relaxed text-ink-muted">
-            <p className="eyebrow mb-2 text-ink">Studio</p>
+          <FooterColumn title="Studio">
             {site.addressLines.map((line) => (
-              <p key={line}>{line}</p>
+              <span key={line}>{line}</span>
             ))}
-            <p className="mt-2">Sunday to Thursday, 10:00 – 19:00</p>
-          </div>
-          <div className="text-xs leading-relaxed text-ink-muted">
-            <p className="eyebrow mb-2 text-ink">Talk to us</p>
-            <a href={`mailto:${site.email}`} className="link-underline block text-ink">
+            <span>Sunday to Thursday, 10:00 to 19:00</span>
+            <a href={`mailto:${site.email}`} className="link-underline mt-3 text-fg">
               {site.email}
             </a>
-            <a
-              href={`tel:${site.phoneDisplay.replace(/\s/g, "")}`}
-              className="link-underline block text-ink"
-            >
+            <a href={`tel:${site.phoneDisplay.replace(/\s/g, "")}`} className="link-underline text-fg">
               {site.phoneDisplay}
             </a>
-            <div className="mt-3 flex gap-4">
+            <span className="mt-3 flex gap-4">
               <a href={site.instagram} className="link-underline" target="_blank" rel="noopener noreferrer">
                 Instagram
               </a>
               <a href={site.tiktok} className="link-underline" target="_blank" rel="noopener noreferrer">
                 TikTok
               </a>
-            </div>
-          </div>
-          <div className="text-xs leading-relaxed text-ink-muted">
-            <p className="eyebrow mb-2 text-ink">Payment</p>
-            <div className="flex flex-wrap gap-2">
-              {["Visa", "Mastercard", "Apple Pay", "Tabby", "Tamara", "Cash on delivery"].map(
-                (method) => (
-                  <span key={method} className="border border-line px-2.5 py-1 text-[10px] text-ink-soft">
-                    {method}
-                  </span>
-                ),
-              )}
-            </div>
-            <p className="mt-3">All prices in AED and inclusive of 5% VAT.</p>
-          </div>
+            </span>
+          </FooterColumn>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-line pt-6 text-[11px] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+        <p className="mt-14 max-w-3xl text-sm leading-relaxed text-fg-muted">
+          We accept {payments.join(", ")}. All prices are in AED and include 5% VAT.
+        </p>
+
+        {/* The name closes the page at full width. */}
+        <p
+          aria-hidden
+          className="mt-16 select-none font-display leading-[0.78] tracking-[-0.03em] text-fg text-[clamp(7rem,52vw,48rem)]"
+        >
+          FRS
+        </p>
+
+        <div className="flex flex-col gap-2 py-6 text-[13px] text-fg-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}. Trade licence 000-000000, Dubai.
           </p>
-          <p>Made in the United Arab Emirates 🇦🇪</p>
+          <p>Made in the United Arab Emirates</p>
         </div>
       </div>
     </footer>
@@ -120,8 +106,8 @@ export function SiteFooter() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="eyebrow mb-4 text-ink">{title}</p>
-      <div className="flex flex-col items-start gap-2.5 text-sm text-ink-muted">{children}</div>
+      <h2 className="mb-4 text-base font-medium text-fg">{title}</h2>
+      <div className="flex flex-col items-start gap-2.5 text-[0.9375rem] text-fg-muted">{children}</div>
     </div>
   );
 }

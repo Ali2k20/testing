@@ -20,7 +20,7 @@ export function WhatsAppButton() {
       href={whatsappLink(`Hi ${site.name}, I have a question about an abaya.`)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`wa-fab fixed bottom-5 right-5 z-40 flex items-center gap-2.5 bg-[#1F7A4D] px-4 py-3 text-ivory shadow-lg transition-all duration-500 hover:bg-[#186039] ${
+      className={`wa-fab fixed bottom-5 right-5 z-40 flex items-center gap-2.5 bg-[#1F7A4D] px-4 py-3 text-white shadow-lg transition-all duration-500 hover:bg-[#186039] ${
         visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       }`}
       aria-label="Chat with FRS on WhatsApp"

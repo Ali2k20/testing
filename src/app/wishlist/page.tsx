@@ -11,8 +11,8 @@ export default function WishlistPage() {
   return (
     <>
       <header className="mx-auto max-w-[1400px] px-5 pb-6 pt-14 lg:px-10">
-        <p className="eyebrow text-gold">Saved for later</p>
-        <h1 className="mt-4 font-display text-5xl leading-none font-light">Your wishlist</h1>
+        <p className="eyebrow text-fg-muted">Saved for later</p>
+        <h1 className="mt-4 font-display text-5xl leading-none">Your wishlist</h1>
       </header>
       <WishlistContent />
     </>

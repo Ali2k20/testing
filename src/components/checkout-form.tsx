@@ -100,15 +100,15 @@ export function CheckoutForm() {
   }
 
   if (!ready) {
-    return <p className="mx-auto max-w-[1400px] px-5 py-24 text-sm text-ink-muted lg:px-10">Loading…</p>;
+    return <p className="mx-auto max-w-[1400px] px-5 py-24 text-sm text-fg-muted lg:px-10">Loading…</p>;
   }
 
   if (lines.length === 0) {
     return (
       <div className="mx-auto max-w-[1400px] px-5 py-20 lg:px-10">
-        <div className="border border-line-soft bg-sand px-8 py-20 text-center">
-          <p className="font-display text-4xl font-light">There is nothing to check out</p>
-          <p className="mx-auto mt-4 max-w-md text-sm text-ink-muted">
+        <div className="border border-line-soft bg-panel px-8 py-20 text-center">
+          <p className="font-display text-4xl">There is nothing to check out</p>
+          <p className="mx-auto mt-4 max-w-md text-sm text-fg-muted">
             Add a piece to your bag and come back — it will still be here.
           </p>
           <Link href="/shop" className={buttonClass("solid", "lg", "mt-8")}>
@@ -249,7 +249,7 @@ export function CheckoutForm() {
               />
             ))}
           </div>
-          <p className="text-xs leading-relaxed text-ink-muted">
+          <p className="text-[13px] leading-relaxed text-fg-muted">
             This storefront runs without a live payment gateway. Placing the order records it and
             takes you to a confirmation — connect Stripe, Checkout.com or Network International to
             take real payments.
@@ -260,7 +260,7 @@ export function CheckoutForm() {
           {submitting ? "Placing your order…" : `Place order · ${formatPrice(totals.total)}`}
         </button>
 
-        <p className="text-center text-xs text-ink-muted">
+        <p className="text-center text-[13px] text-fg-muted">
           By placing this order you agree to our{" "}
           <Link href="/shipping-and-returns" className="underline">
             delivery and returns terms
@@ -280,8 +280,8 @@ export function CheckoutForm() {
 
       <aside className="lg:sticky lg:top-28 lg:self-start">
         <div className="border border-line p-7">
-          <h2 className="font-display text-2xl font-light">
-            Your order <span className="text-ink-muted">({lines.length})</span>
+          <h2 className="font-display text-2xl">
+            Your order <span className="text-fg-muted">({lines.length})</span>
           </h2>
 
           <ul className="mt-6 divide-y divide-line-soft">
@@ -289,15 +289,15 @@ export function CheckoutForm() {
               const color = colorByName(line.color) ?? line.product.colors[0];
               return (
                 <li key={line.id} className="flex gap-4 py-4">
-                  <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-sand">
+                  <div className="relative h-20 w-16 shrink-0 overflow-hidden bg-panel">
                     <ProductArt product={line.product} color={color} className="h-full w-full" />
-                    <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-ink text-[10px] text-ivory">
+                    <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-fg text-[13px] text-ground">
                       {line.quantity}
                     </span>
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm">{line.product.name}</p>
-                    <p className="text-[11px] text-ink-muted">
+                    <p className="text-[13px] text-fg-muted">
                       {color.label} · {line.size}
                     </p>
                   </div>
@@ -308,7 +308,7 @@ export function CheckoutForm() {
           </ul>
 
           <div className="mt-5 border-t border-line-soft pt-5">
-            <label className="eyebrow text-ink" htmlFor="promo">
+            <label className="eyebrow text-fg" htmlFor="promo">
               Discount code
             </label>
             <div className="mt-2 flex gap-2">
@@ -324,11 +324,11 @@ export function CheckoutForm() {
               </button>
             </div>
             {appliedPromo && (
-              <p className="mt-2 text-xs text-olive">
+              <p className="mt-2 text-[13px] text-olive">
                 {appliedPromo} applied — {formatPrice(site.newsletterDiscount)} off.
               </p>
             )}
-            {promoError && <p className="mt-2 text-xs text-[#8E2C33]">{promoError}</p>}
+            {promoError && <p className="mt-2 text-[13px] text-[#8E2C33]">{promoError}</p>}
           </div>
 
           <dl className="mt-6 space-y-2.5 border-t border-line-soft pt-5 text-sm">
@@ -348,8 +348,8 @@ export function CheckoutForm() {
             <Row term="Includes VAT (5%)" value={formatPrice(totals.vat)} muted />
           </dl>
 
-          <p className="mt-5 text-xs leading-relaxed text-ink-muted">
-            Arriving <strong className="text-ink">{express ? "same or next day" : deliveryDays[emirate]}</strong>{" "}
+          <p className="mt-5 text-[13px] leading-relaxed text-fg-muted">
+            Arriving <strong className="text-fg">{express ? "same or next day" : deliveryDays[emirate]}</strong>{" "}
             to {emirate}. Free size exchange within {site.returnWindowDays} days.
           </p>
         </div>
@@ -359,7 +359,7 @@ export function CheckoutForm() {
 }
 
 const inputClass =
-  "w-full border border-line bg-ivory px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-ink placeholder:text-ink-muted/60";
+  "w-full border border-line bg-ground px-4 py-3 text-sm text-fg outline-none transition-colors focus:border-fg placeholder:text-fg-muted/60";
 
 function Fieldset({
   legend,
@@ -373,10 +373,10 @@ function Fieldset({
   return (
     <fieldset className="space-y-5">
       <legend className="mb-5 flex items-center gap-3">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-ink text-xs">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full border border-fg text-[13px]">
           {step}
         </span>
-        <span className="font-display text-2xl font-light">{legend}</span>
+        <span className="font-display text-2xl">{legend}</span>
       </legend>
       {children}
     </fieldset>
@@ -394,9 +394,9 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="eyebrow text-ink-muted">{label}</span>
+      <span className="eyebrow text-fg-muted">{label}</span>
       <div className="mt-2">{children}</div>
-      {hint && <span className="mt-1.5 block text-[11px] text-ink-muted">{hint}</span>}
+      {hint && <span className="mt-1.5 block text-[13px] text-fg-muted">{hint}</span>}
     </label>
   );
 }
@@ -415,7 +415,7 @@ function Choice({
   return (
     <label
       className={`flex cursor-pointer items-start gap-3.5 border p-4 transition-colors ${
-        checked ? "border-ink bg-sand" : "border-line hover:border-ink-muted"
+        checked ? "border-fg bg-panel" : "border-line hover:border-fg-muted"
       }`}
     >
       <input
@@ -425,8 +425,8 @@ function Choice({
         className="mt-1 h-4 w-4 accent-[#14110e]"
       />
       <span>
-        <span className="block text-sm text-ink">{title}</span>
-        <span className="mt-0.5 block text-xs text-ink-muted">{note}</span>
+        <span className="block text-sm text-fg">{title}</span>
+        <span className="mt-0.5 block text-[13px] text-fg-muted">{note}</span>
       </span>
     </label>
   );
@@ -434,8 +434,8 @@ function Choice({
 
 function Row({ term, value, muted }: { term: string; value: string; muted?: boolean }) {
   return (
-    <div className={`flex justify-between ${muted ? "text-xs text-ink-muted" : ""}`}>
-      <dt className={muted ? "" : "text-ink-muted"}>{term}</dt>
+    <div className={`flex justify-between ${muted ? "text-[13px] text-fg-muted" : ""}`}>
+      <dt className={muted ? "" : "text-fg-muted"}>{term}</dt>
       <dd>{value}</dd>
     </div>
   );

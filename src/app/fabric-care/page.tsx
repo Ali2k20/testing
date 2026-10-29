@@ -42,26 +42,26 @@ export default function FabricCarePage() {
         <section className="grid gap-8 sm:grid-cols-2">
           {principles.map((item) => (
             <article key={item.title} className="border border-line p-7">
-              <h2 className="font-display text-2xl font-light">{item.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-muted">{item.body}</p>
+              <h2 className="font-display text-2xl">{item.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-fg-muted">{item.body}</p>
             </article>
           ))}
         </section>
 
         <section className="mt-16">
-          <h2 className="font-display text-3xl font-light">Care by piece</h2>
-          <p className="mt-3 text-sm text-ink-muted">
+          <h2 className="font-display text-3xl">Care by piece</h2>
+          <p className="mt-3 text-sm text-fg-muted">
             Every product page repeats this, but here it is in one place.
           </p>
           <div className="mt-7 divide-y divide-line-soft border-y border-line-soft">
             {products.map((product) => (
               <div key={product.slug} className="grid gap-2 py-5 sm:grid-cols-[240px_1fr] sm:gap-6">
-                <Link href={`/product/${product.slug}`} className="link-underline text-sm text-ink">
+                <Link href={`/product/${product.slug}`} className="link-underline text-sm text-fg">
                   {product.name}
                 </Link>
                 <div>
-                  <p className="text-sm text-ink-muted">{product.care}</p>
-                  <p className="mt-1 text-xs text-ink-muted/80">{product.fabric}</p>
+                  <p className="text-sm text-fg-muted">{product.care}</p>
+                  <p className="mt-1 text-[13px] text-fg-muted/80">{product.fabric}</p>
                 </div>
               </div>
             ))}

@@ -10,10 +10,10 @@ export function NewsletterForm({ variant = "footer" }: { variant?: "footer" | "p
 
   if (done) {
     return (
-      <div className={variant === "panel" ? "text-ivory" : "text-ink"}>
-        <p className="font-display text-2xl font-light">You are on the list.</p>
+      <div className={variant === "panel" ? "text-ground" : "text-fg"}>
+        <p className="font-display text-2xl">You are on the list.</p>
         <p className="mt-2 text-sm opacity-80">
-          Use code <strong className="tracking-widest">{site.newsletterCode}</strong> for{" "}
+          Use code <strong className="">{site.newsletterCode}</strong> for{" "}
           {formatPrice(site.newsletterDiscount)} off your first order.
         </p>
       </div>
@@ -32,15 +32,11 @@ export function NewsletterForm({ variant = "footer" }: { variant?: "footer" | "p
     >
       <label
         htmlFor={`newsletter-${variant}`}
-        className={`eyebrow block ${variant === "panel" ? "text-gold-soft" : "text-ink"}`}
+        className={`eyebrow block ${variant === "panel" ? "text-talli-soft" : "text-fg"}`}
       >
         {formatPrice(site.newsletterDiscount)} off your first order
       </label>
-      <div
-        className={`mt-3 flex border-b ${
-          variant === "panel" ? "border-ivory/40" : "border-ink"
-        }`}
-      >
+      <div className="mt-3 flex">
         <input
           id={`newsletter-${variant}`}
           type="email"
@@ -48,22 +44,22 @@ export function NewsletterForm({ variant = "footer" }: { variant?: "footer" | "p
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="you@email.com"
-          className={`w-full bg-transparent py-2 text-sm outline-none ${
+          className={`w-full border-b bg-transparent py-2 text-base outline-none ${
             variant === "panel"
-              ? "text-ivory placeholder:text-ivory/50"
-              : "text-ink placeholder:text-ink-muted/70"
+              ? "border-ground/40 text-ground placeholder:text-ground/60"
+              : "border-fg-muted text-fg placeholder:text-fg-muted"
           }`}
         />
         <button
           type="submit"
-          className={`eyebrow shrink-0 px-3 ${variant === "panel" ? "text-ivory" : "text-ink"}`}
+          className={`min-h-11 shrink-0 px-3 font-medium ${variant === "panel" ? "text-ground" : "text-fg"}`}
         >
           Join
         </button>
       </div>
       <p
-        className={`mt-2 text-[11px] ${
-          variant === "panel" ? "text-ivory/60" : "text-ink-muted"
+        className={`mt-2 text-[13px] ${
+          variant === "panel" ? "text-ground/60" : "text-fg-muted"
         }`}
       >
         New drops and restocks only. Unsubscribe any time.

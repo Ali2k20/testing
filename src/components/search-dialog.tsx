@@ -60,9 +60,9 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
 
   return (
     <div className="fixed inset-0 z-[60]">
-      <div className="absolute inset-0 bg-ink/45 animate-fade" onClick={close} />
-      <div className="relative mx-auto mt-0 w-full max-w-3xl bg-ivory p-6 shadow-2xl sm:mt-24 sm:p-10">
-        <div className="flex items-center gap-4 border-b border-ink pb-4">
+      <div className="absolute inset-0 bg-black/65 animate-fade" onClick={close} />
+      <div className="relative mx-auto mt-0 w-full max-w-3xl bg-ground p-6 shadow-2xl sm:mt-24 sm:p-10">
+        <div className="flex items-center gap-4 border-b border-fg pb-4">
           <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.4">
             <circle cx="11" cy="11" r="7" />
             <path d="m20 20-3.5-3.5" />
@@ -72,10 +72,10 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search abayas, mukhawar, colours…"
-            className="w-full bg-transparent font-display text-2xl font-light outline-none placeholder:text-ink-muted/60"
+            className="w-full bg-transparent font-display text-2xl outline-none placeholder:text-fg-muted/60"
             aria-label="Search products"
           />
-          <button type="button" onClick={close} className="eyebrow text-ink-muted hover:text-ink">
+          <button type="button" onClick={close} className="eyebrow text-fg-muted hover:text-fg">
             Close
           </button>
         </div>
@@ -87,34 +87,34 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
                 <Link
                   href={`/product/${product.slug}`}
                   onClick={close}
-                  className="flex items-center gap-4 py-3 hover:bg-sand/60"
+                  className="flex items-center gap-4 py-3 hover:bg-panel/60"
                 >
-                  <div className="h-20 w-16 shrink-0 overflow-hidden bg-sand">
+                  <div className="h-20 w-16 shrink-0 overflow-hidden bg-panel">
                     <ProductArt product={product} color={product.colors[0]} className="h-full w-full" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-display text-lg text-ink">{product.name}</p>
-                    <p className="truncate text-xs text-ink-muted">{product.tagline}</p>
+                    <p className="truncate font-display text-lg text-fg">{product.name}</p>
+                    <p className="truncate text-[13px] text-fg-muted">{product.tagline}</p>
                   </div>
-                  <span className="eyebrow shrink-0 text-ink">{formatPrice(product.price)}</span>
+                  <span className="eyebrow shrink-0 text-fg">{formatPrice(product.price)}</span>
                 </Link>
               </li>
             ))}
           </ul>
         ) : query.trim().length >= 2 ? (
-          <p className="mt-8 text-sm text-ink-muted">
+          <p className="mt-8 text-sm text-fg-muted">
             Nothing matched “{query}”. Try “crepe”, “pearl”, “olive” or “Ramadan”.
           </p>
         ) : (
           <div className="mt-8">
-            <p className="eyebrow text-ink-muted">Popular right now</p>
+            <p className="eyebrow text-fg-muted">Popular right now</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {quickLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={close}
-                  className="eyebrow border border-line px-4 py-2 text-ink-soft hover:border-ink hover:text-ink"
+                  className="eyebrow border border-line px-4 py-2 text-fg-soft hover:border-fg hover:text-fg"
                 >
                   {link.label}
                 </Link>

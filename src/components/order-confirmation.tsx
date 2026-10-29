@@ -57,8 +57,8 @@ export function OrderConfirmation() {
   if (!reference) {
     return (
       <div className="mx-auto max-w-[1400px] px-5 py-24 text-center lg:px-10">
-        <p className="font-display text-4xl font-light">No order to show</p>
-        <p className="mx-auto mt-4 max-w-md text-sm text-ink-muted">
+        <p className="font-display text-4xl">No order to show</p>
+        <p className="mx-auto mt-4 max-w-md text-sm text-fg-muted">
           This page shows a receipt straight after checkout. If you are looking for an existing
           order, message us with your reference and we will pull it up.
         </p>
@@ -72,23 +72,23 @@ export function OrderConfirmation() {
   return (
     <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10">
       <div className="mx-auto max-w-2xl text-center">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold text-gold">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-talli text-talli">
           <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.2">
             <path d="m5 12.5 4.5 4.5L19 7.5" />
           </svg>
         </span>
-        <p className="eyebrow mt-6 text-gold">Order placed</p>
-        <h1 className="mt-4 font-display text-5xl leading-[1.05] font-light sm:text-6xl">
+        <p className="eyebrow mt-6 text-fg-muted">Order placed</p>
+        <h1 className="mt-4 font-display text-5xl leading-[1.05] sm:text-6xl">
           Shukran{order ? `, ${order.customer.firstName}` : ""}.
         </h1>
-        <p className="mt-5 text-sm leading-relaxed text-ink-muted">
+        <p className="mt-5 text-sm leading-relaxed text-fg-muted">
           Your reference is{" "}
-          <strong className="tracking-[0.15em] text-ink">{reference}</strong>. We have emailed a
+          <strong className=" text-fg">{reference}</strong>. We have emailed a
           confirmation
           {order ? ` to ${order.customer.email}` : ""}. Our studio packs orders Sunday to Thursday.
         </p>
         {order && (
-          <p className="mt-3 text-sm text-ink-soft">
+          <p className="mt-3 text-sm text-fg-soft">
             Arriving <strong>{order.delivery.express ? "same or next day" : order.delivery.eta}</strong>{" "}
             to {order.delivery.area}, {order.delivery.emirate}.
           </p>
@@ -98,8 +98,8 @@ export function OrderConfirmation() {
       {order && (
         <div className="mx-auto mt-14 max-w-2xl border border-line p-7">
           <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-line-soft pb-4">
-            <h2 className="font-display text-2xl font-light">Receipt</h2>
-            <span className="text-xs text-ink-muted">
+            <h2 className="font-display text-2xl">Receipt</h2>
+            <span className="text-[13px] text-fg-muted">
               {paymentLabels[order.payment] ?? order.payment}
             </span>
           </div>
@@ -111,7 +111,7 @@ export function OrderConfirmation() {
                   <Link href={`/product/${line.slug}`} className="link-underline text-sm">
                     {line.name}
                   </Link>
-                  <p className="text-[11px] text-ink-muted">
+                  <p className="text-[13px] text-fg-muted">
                     {line.color} · Size {line.size} · Qty {line.quantity}
                   </p>
                 </div>
@@ -122,22 +122,22 @@ export function OrderConfirmation() {
 
           <dl className="space-y-2.5 border-t border-line-soft pt-4 text-sm">
             <div className="flex justify-between">
-              <dt className="text-ink-muted">Subtotal</dt>
+              <dt className="text-fg-muted">Subtotal</dt>
               <dd>{formatPrice(order.totals.subtotal)}</dd>
             </div>
             {order.totals.discount > 0 && (
               <div className="flex justify-between">
-                <dt className="text-ink-muted">Discount</dt>
+                <dt className="text-fg-muted">Discount</dt>
                 <dd>− {formatPrice(order.totals.discount)}</dd>
               </div>
             )}
             <div className="flex justify-between">
-              <dt className="text-ink-muted">Delivery</dt>
+              <dt className="text-fg-muted">Delivery</dt>
               <dd>{order.totals.shipping === 0 ? "Free" : formatPrice(order.totals.shipping)}</dd>
             </div>
             {order.totals.codFee > 0 && (
               <div className="flex justify-between">
-                <dt className="text-ink-muted">Cash-on-delivery fee</dt>
+                <dt className="text-fg-muted">Cash-on-delivery fee</dt>
                 <dd>{formatPrice(order.totals.codFee)}</dd>
               </div>
             )}
@@ -145,7 +145,7 @@ export function OrderConfirmation() {
               <dt>Total paid</dt>
               <dd className="font-display text-2xl">{formatPrice(order.totals.total)}</dd>
             </div>
-            <div className="flex justify-between text-xs text-ink-muted">
+            <div className="flex justify-between text-[13px] text-fg-muted">
               <dt>Includes VAT (5%)</dt>
               <dd>{formatPrice(order.totals.vat)}</dd>
             </div>
@@ -168,7 +168,7 @@ export function OrderConfirmation() {
       </div>
 
       <section className="mt-20 border-t border-line pt-14">
-        <p className="eyebrow text-center text-ink-muted">Customers usually add these next</p>
+        <p className="eyebrow text-center text-fg-muted">Customers usually add these next</p>
         <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {suggestions.map((product) => (
             <ProductCard key={product.slug} product={product} compact />

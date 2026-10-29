@@ -40,18 +40,18 @@ export default async function CollectionPage({
 
   return (
     <>
-      <header className="border-b border-line bg-sand">
+      <header className="border-b border-line bg-panel">
         <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-24">
           <p className="eyebrow" style={{ color: collection.accent }}>
             {items.length} {items.length === 1 ? "piece" : "pieces"}
           </p>
-          <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[1.02] font-light sm:text-7xl">
+          <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[1.02] sm:text-7xl">
             {collection.name}
           </h1>
-          <p className="mt-2 font-display text-3xl font-light text-ink-muted" dir="rtl">
+          <p className="mt-2 font-arabic-text text-3xl text-fg-muted" dir="rtl" lang="ar">
             {collection.arabicName}
           </p>
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-ink-soft">
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-fg-soft">
             {collection.headline}. {collection.description}
           </p>
         </div>
@@ -68,20 +68,20 @@ export default async function CollectionPage({
       <TrustBar />
 
       <section className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-20">
-        <p className="eyebrow text-ink-muted">Keep browsing</p>
+        <p className="eyebrow text-fg-muted">Keep browsing</p>
         <div className="mt-8 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
           {others.map((item) => (
             <ButtonLink
               key={item.slug}
               href={`/collections/${item.slug}`}
               tone="ghost"
-              className="bg-ivory px-6 py-8 text-center"
+              className="bg-ground px-6 py-8 text-center"
             >
               {item.name}
             </ButtonLink>
           ))}
         </div>
-        <p className="mt-10 text-center text-xs text-ink-muted">
+        <p className="mt-10 text-center text-[13px] text-fg-muted">
           Every piece ships free across the UAE over {site.currency} {site.freeShippingThreshold},
           with cash on delivery in all seven emirates.
         </p>

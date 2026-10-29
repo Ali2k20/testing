@@ -47,10 +47,10 @@ export default function AboutPage() {
       <section className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div className="grid grid-cols-2 gap-4 lg:sticky lg:top-28 lg:self-start">
-            <div className="aspect-[3/4] overflow-hidden bg-sand">
+            <div className="aspect-[3/4] overflow-hidden bg-panel">
               <ProductArt product={noor} color={noor.colors[0]} className="h-full w-full" />
             </div>
-            <div className="mt-10 aspect-[3/4] overflow-hidden bg-sand">
+            <div className="mt-10 aspect-[3/4] overflow-hidden bg-panel">
               <ProductArt product={talli} color={talli.colors[0]} view="detail" className="h-full w-full" />
             </div>
           </div>
@@ -59,10 +59,10 @@ export default function AboutPage() {
             {chapters.map((chapter, index) => (
               <article key={chapter.title}>
                 <Eyebrow>{String(index + 1).padStart(2, "0")}</Eyebrow>
-                <h2 className="mt-3 font-display text-3xl leading-tight font-light sm:text-4xl">
+                <h2 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
                   {chapter.title}
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">{chapter.body}</p>
+                <p className="mt-4 text-sm leading-relaxed text-fg-muted">{chapter.body}</p>
               </article>
             ))}
           </div>
@@ -72,14 +72,14 @@ export default function AboutPage() {
       <TrustBar />
 
       <section className="mx-auto max-w-[1400px] px-5 py-20 text-center lg:px-10">
-        <h2 className="mx-auto max-w-2xl font-display text-4xl leading-tight font-light sm:text-5xl">
+        <h2 className="mx-auto max-w-2xl font-display text-4xl leading-tight sm:text-5xl">
           Come and feel the fabric
         </h2>
-        <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-ink-muted">
+        <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-fg-muted">
           The studio is open Sunday to Thursday, 10:00 to 19:00. Bring a friend, try three sizes,
           leave with nothing if nothing is right. We would rather that than a return.
         </p>
-        <p className="mt-6 text-sm text-ink-soft">{site.addressLines.join(" · ")}</p>
+        <p className="mt-6 text-sm text-fg-soft">{site.addressLines.join(" · ")}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <ButtonLink href="/contact" tone="solid" size="lg">
             Book a studio visit

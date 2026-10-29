@@ -21,15 +21,15 @@ export function CartPageContent() {
     .slice(0, 4);
 
   if (!ready) {
-    return <div className="mx-auto max-w-[1400px] px-5 py-24 text-sm text-ink-muted lg:px-10">Loading your bag…</div>;
+    return <div className="mx-auto max-w-[1400px] px-5 py-24 text-sm text-fg-muted lg:px-10">Loading your bag…</div>;
   }
 
   if (lines.length === 0) {
     return (
       <div className="mx-auto max-w-[1400px] px-5 py-20 lg:px-10">
-        <div className="border border-line-soft bg-sand px-8 py-20 text-center">
-          <p className="font-display text-4xl font-light">Your bag is empty</p>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-muted">
+        <div className="border border-line-soft bg-panel px-8 py-20 text-center">
+          <p className="font-display text-4xl">Your bag is empty</p>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-fg-muted">
             Most first orders start with the Noor Open Abaya or a mulberry silk sheila. Both ship
             free once you pass {formatPrice(site.freeShippingThreshold)}.
           </p>
@@ -39,7 +39,7 @@ export function CartPageContent() {
         </div>
 
         <section className="mt-20">
-          <p className="eyebrow text-ink-muted">Most loved right now</p>
+          <p className="eyebrow text-fg-muted">Most loved right now</p>
           <div className="mt-8 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {suggestions.map((product) => (
               <ProductCard key={product.slug} product={product} />
@@ -53,19 +53,19 @@ export function CartPageContent() {
   return (
     <div className="mx-auto grid max-w-[1400px] gap-12 px-5 pb-24 pt-8 lg:grid-cols-[1.6fr_1fr] lg:gap-16 lg:px-10">
       <div>
-        <div className="border border-line-soft bg-sand p-5">
+        <div className="border border-line-soft bg-panel p-5">
           {totals.amountToFreeShipping > 0 ? (
-            <p className="text-sm text-ink-soft">
+            <p className="text-sm text-fg-soft">
               Add <strong>{formatPrice(totals.amountToFreeShipping)}</strong> more for free UAE
               delivery.
             </p>
           ) : (
-            <p className="text-sm text-ink-soft">
+            <p className="text-sm text-fg-soft">
               <strong>Free UAE delivery unlocked.</strong> Dubai orders arrive next day.
             </p>
           )}
           <div className="mt-3 h-[3px] w-full bg-line">
-            <div className="h-full bg-gold transition-[width] duration-500" style={{ width: `${progress}%` }} />
+            <div className="h-full bg-talli transition-[width] duration-500" style={{ width: `${progress}%` }} />
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export function CartPageContent() {
               <li key={line.id} className="flex gap-5 py-7 first:pt-0">
                 <Link
                   href={`/product/${line.product.slug}`}
-                  className="h-40 w-32 shrink-0 overflow-hidden bg-sand"
+                  className="h-40 w-32 shrink-0 overflow-hidden bg-panel"
                 >
                   <ProductArt product={line.product} color={color} className="h-full w-full" />
                 </Link>
@@ -89,10 +89,10 @@ export function CartPageContent() {
                       >
                         {line.product.name}
                       </Link>
-                      <p className="mt-1 text-xs text-ink-muted">
+                      <p className="mt-1 text-[13px] text-fg-muted">
                         {color.label} · Size {line.size}
                       </p>
-                      <p className="mt-1 text-xs text-ink-muted">{line.product.fabric}</p>
+                      <p className="mt-1 text-[13px] text-fg-muted">{line.product.fabric}</p>
                     </div>
                     <span className="shrink-0 text-sm">{formatPrice(line.lineTotal)}</span>
                   </div>
@@ -102,16 +102,16 @@ export function CartPageContent() {
                       <button
                         type="button"
                         onClick={() => setQuantity(line.id, line.quantity - 1)}
-                        className="px-3 py-1.5 text-ink-muted hover:text-ink"
+                        className="px-3 py-1.5 text-fg-muted hover:text-fg"
                         aria-label="Decrease quantity"
                       >
                         −
                       </button>
-                      <span className="min-w-7 text-center text-xs">{line.quantity}</span>
+                      <span className="min-w-7 text-center text-[13px]">{line.quantity}</span>
                       <button
                         type="button"
                         onClick={() => setQuantity(line.id, line.quantity + 1)}
-                        className="px-3 py-1.5 text-ink-muted hover:text-ink"
+                        className="px-3 py-1.5 text-fg-muted hover:text-fg"
                         aria-label="Increase quantity"
                       >
                         +
@@ -120,7 +120,7 @@ export function CartPageContent() {
                     <button
                       type="button"
                       onClick={() => removeLine(line.id)}
-                      className="text-xs text-ink-muted underline hover:text-ink"
+                      className="text-[13px] text-fg-muted underline hover:text-fg"
                     >
                       Remove
                     </button>
@@ -132,7 +132,7 @@ export function CartPageContent() {
         </ul>
 
         <section className="mt-14 border-t border-line pt-10">
-          <p className="eyebrow text-ink-muted">Customers also added</p>
+          <p className="eyebrow text-fg-muted">Customers also added</p>
           <div className="rail -mx-5 mt-6 flex gap-5 overflow-x-auto px-5 pb-4">
             {suggestions.map((product) => (
               <div key={product.slug} className="w-[62vw] shrink-0 sm:w-[38vw] lg:w-[220px]">
@@ -145,21 +145,21 @@ export function CartPageContent() {
 
       <aside className="lg:sticky lg:top-28 lg:self-start">
         <div className="border border-line p-7">
-          <h2 className="font-display text-2xl font-light">Order summary</h2>
+          <h2 className="font-display text-2xl">Order summary</h2>
           <dl className="mt-6 space-y-3 text-sm">
             <div className="flex justify-between">
-              <dt className="text-ink-muted">Subtotal</dt>
+              <dt className="text-fg-muted">Subtotal</dt>
               <dd>{formatPrice(subtotal)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-ink-muted">Delivery</dt>
+              <dt className="text-fg-muted">Delivery</dt>
               <dd>{totals.shipping === 0 ? "Free" : formatPrice(totals.shipping)}</dd>
             </div>
             <div className="flex justify-between border-t border-line pt-3 text-base">
               <dt>Total</dt>
               <dd className="font-display text-2xl">{formatPrice(totals.total)}</dd>
             </div>
-            <div className="flex justify-between text-xs text-ink-muted">
+            <div className="flex justify-between text-[13px] text-fg-muted">
               <dt>Includes VAT (5%)</dt>
               <dd>{formatPrice(totals.vat)}</dd>
             </div>
@@ -172,7 +172,7 @@ export function CartPageContent() {
             Continue shopping
           </Link>
 
-          <ul className="mt-7 space-y-2.5 border-t border-line-soft pt-6 text-xs text-ink-muted">
+          <ul className="mt-7 space-y-2.5 border-t border-line-soft pt-6 text-[13px] text-fg-muted">
             <li>Cash on delivery available in all seven emirates</li>
             <li>Free size exchange within {site.returnWindowDays} days</li>
             <li>

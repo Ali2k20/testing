@@ -13,23 +13,23 @@ export function ProductReviews({ product }: { product: Product }) {
   }));
 
   return (
-    <section id="reviews" className="border-t border-line bg-sand py-16 lg:py-20">
+    <section id="reviews" className="border-t border-line bg-panel py-16 lg:py-20">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-5 lg:grid-cols-[300px_1fr] lg:gap-16 lg:px-10">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="eyebrow text-gold">Verified buyers</p>
-          <p className="mt-3 font-display text-5xl font-light">{rating.average}</p>
+          <p className="eyebrow text-fg-muted">Verified buyers</p>
+          <p className="mt-3 font-display text-5xl">{rating.average}</p>
           <Stars rating={rating.average} className="mt-2 scale-110 origin-left" />
-          <p className="mt-3 text-sm text-ink-muted">
+          <p className="mt-3 text-sm text-fg-muted">
             {rating.count} {rating.count === 1 ? "review" : "reviews"} from customers who bought this
             piece
           </p>
           <div className="mt-6 space-y-2">
             {distribution.map((row) => (
-              <div key={row.stars} className="flex items-center gap-3 text-xs text-ink-muted">
+              <div key={row.stars} className="flex items-center gap-3 text-[13px] text-fg-muted">
                 <span className="w-6">{row.stars}★</span>
                 <div className="h-1 flex-1 bg-line">
                   <div
-                    className="h-full bg-gold"
+                    className="h-full bg-talli"
                     style={{ width: `${(row.count / rating.count) * 100}%` }}
                   />
                 </div>
@@ -46,10 +46,10 @@ export function ProductReviews({ product }: { product: Product }) {
                 <Stars rating={review.rating} />
                 <p className="font-display text-xl leading-none">{review.title}</p>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">{review.body}</p>
-              <p className="mt-3 text-[11px] text-ink-muted">
+              <p className="mt-3 text-sm leading-relaxed text-fg-soft">{review.body}</p>
+              <p className="mt-3 text-[13px] text-fg-muted">
                 {review.author} · {review.emirate} · {formatDate(review.date)}
-                {review.verified && <span className="ml-2 text-gold">Verified purchase</span>}
+                {review.verified && <span className="ml-2 text-talli">Verified purchase</span>}
               </p>
             </li>
           ))}

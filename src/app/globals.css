@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #14110e;
-  --color-ink-soft: #2a241e;
-  --color-ink-muted: #6c6259;
-  --color-line: #ded2c1;
-  --color-line-soft: #ebe2d6;
-  --color-sand: #f3ece2;
-  --color-sand-deep: #e6dac8;
-  --color-ivory: #fbf8f3;
-  --color-gold: #a8834f;
-  --color-gold-soft: #c8a878;
-  --color-rose: #be8e88;
-  --color-olive: #5e6247;
-  --color-emerald: #1f4d42;
+  /* Dark room: the black of the abaya is the ground, and the clothes and the
+     talli gold are the only light. Gold is reserved for actions. */
+  --color-fg: #e8e6e3;
+  --color-fg-soft: #d5d1ca;
+  --color-fg-muted: #aaa59d;
+  --color-line: #3a352f;
+  --color-line-soft: #292520;
+  --color-panel: #181614;
+  --color-panel-deep: #221f1b;
+  --color-ground: #0e0d0c;
+  --color-talli: #cfab62;
+  --color-talli-soft: #e3c98f;
+  --color-rose: #d9a8a1;
+  --color-olive: #b8c08f;
+  --color-emerald: #7fc0ad;
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", "Times New Roman", serif;
-  --font-sans: var(--font-jost), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-bodoni), "Bodoni 72", Didot, "Times New Roman", serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Badeen is a display face: use it at 48px and up, Naskh below that. */
+  --font-arabic: var(--font-badeen), "Geeza Pro", "Noto Naskh Arabic", serif;
+  --font-arabic-text: var(--font-naskh), "Geeza Pro", "Noto Naskh Arabic", serif;
 
   --radius-none: 0px;
 
@@ -53,7 +58,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -61,16 +66,16 @@ html {
 }
 
 body {
-  background-color: var(--color-ivory);
-  color: var(--color-ink);
+  background-color: var(--color-ground);
+  color: var(--color-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: var(--color-ink);
-  color: var(--color-ivory);
+  background-color: var(--color-fg);
+  color: var(--color-ground);
 }
 
 /* Thin, quiet scrollbar so horizontal product rails do not shout. */
@@ -92,25 +97,98 @@ body {
   display: none;
 }
 
-/* Letterspaced small caps used for eyebrows and buttons throughout. */
+/* Small label above a heading or a value: sentence case at a readable size. */
 .eyebrow {
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  line-height: 1.4;
   font-weight: 500;
 }
 
-/* Underline that draws in on hover — used on every text link in the nav. */
+/* Underline that appears on hover, used on text links. */
 .link-underline {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.3s ease;
 }
 .link-underline:hover,
 .link-underline:focus-visible {
-  background-size: 100% 1px;
+  text-decoration-color: currentColor;
+}
+
+/* Hero strip: a sideways row of garments; the centred one is lit. */
+.lit-strip {
+  --frame-h: clamp(280px, 46svh, 520px);
+  --frame-w: calc(var(--frame-h) * 0.75);
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding-inline: max(20px, calc(50% - var(--frame-w) / 2));
+  cursor: grab;
+}
+.lit-strip[data-dragging] {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.lit-frame {
+  flex: 0 0 var(--frame-w);
+  scroll-snap-align: center;
+}
+.lit-art {
+  position: relative;
+}
+.lit-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-ground);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.lit-strip[data-ready] .lit-frame:not([data-lit]) .lit-art::after {
+  opacity: 0.55;
+}
+.lit-strip[data-ready] .lit-frame:not([data-lit]):hover .lit-art::after,
+.lit-strip[data-ready] .lit-frame:not([data-lit]):focus-visible .lit-art::after {
+  opacity: 0.25;
+}
+.lit-frame img,
+.lit-frame svg {
+  -webkit-user-drag: none;
+}
+
+/* Homepage line-up: one size, one weight; the row under the pointer stays lit. */
+.lineup a {
+  color: var(--color-fg);
+  transition: color 0.3s ease;
+}
+@media (hover: hover) {
+  .lineup:hover a {
+    color: var(--color-fg-muted);
+  }
+  .lineup a:hover,
+  .lineup a:focus-visible {
+    color: var(--color-fg);
+  }
+}
+
+/* The showcase close-up drifts slowly, like a camera breathing. */
+.showcase-art {
+  animation: drift 22s ease-in-out infinite alternate;
+  transform-origin: 50% 40%;
+}
+@keyframes drift {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+  }
 }
 
 /* On mobile the product page pins an add-to-bag bar to the bottom edge, so the
@@ -135,6 +213,6 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-talli);
   outline-offset: 2px;
 }

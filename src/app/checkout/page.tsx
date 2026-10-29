@@ -14,12 +14,12 @@ export default function CheckoutPage() {
     <>
       <header className="mx-auto max-w-[1400px] px-5 pb-4 pt-12 lg:px-10">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <h1 className="font-display text-5xl leading-none font-light">Checkout</h1>
-          <Link href="/cart" className="eyebrow link-underline text-ink-muted">
+          <h1 className="font-display text-5xl leading-none">Checkout</h1>
+          <Link href="/cart" className="eyebrow link-underline text-fg-muted">
             ← Back to bag
           </Link>
         </div>
-        <p className="mt-4 text-sm text-ink-muted">
+        <p className="mt-4 text-sm text-fg-muted">
           Secure checkout · Free returns within {site.returnWindowDays} days · Cash on delivery in
           all seven emirates
         </p>

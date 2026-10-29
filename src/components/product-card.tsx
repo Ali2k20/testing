@@ -23,7 +23,7 @@ export function ProductCard({
 
   return (
     <article className="group relative flex flex-col">
-      <Link href={`/product/${product.slug}`} className="relative block overflow-hidden bg-sand">
+      <Link href={`/product/${product.slug}`} className="relative block overflow-hidden bg-panel">
         <div className="aspect-[3/4]">
           <ProductArt
             product={product}
@@ -46,42 +46,39 @@ export function ProductCard({
         </div>
         <WishlistButton
           slug={product.slug}
-          className="absolute right-3 top-3 h-9 w-9 justify-center bg-ivory/85 text-ink-soft backdrop-blur hover:text-ink"
+          className="absolute right-3 top-3 h-11 w-11 justify-center bg-ground/80 text-fg-soft hover:text-fg"
         />
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-ink/90 py-3 text-center text-[11px] tracking-[0.22em] text-ivory uppercase transition-transform duration-400 ease-out group-hover:translate-y-0">
-          View piece
-        </span>
       </Link>
 
       <div className="flex flex-1 flex-col gap-1.5 pt-4">
         {!compact && (
-          <p className="eyebrow text-ink-muted">{categoryLabels[product.category]}</p>
+          <p className="text-[13px] text-fg-muted">{categoryLabels[product.category]}</p>
         )}
         <h3 className="font-display text-xl leading-snug font-normal">
           <Link href={`/product/${product.slug}`} className="link-underline">
             {product.name}
           </Link>
         </h3>
-        {!compact && <p className="text-xs leading-relaxed text-ink-muted">{product.tagline}</p>}
+        {!compact && <p className="text-sm leading-relaxed text-fg-soft">{product.tagline}</p>}
 
         {rating.count > 0 && (
           <div className="flex items-center gap-2 pt-0.5">
             <Stars rating={rating.average} />
-            <span className="text-[11px] text-ink-muted">
+            <span className="text-[13px] text-fg-muted">
               {rating.average} ({rating.count})
             </span>
           </div>
         )}
 
         <div className="mt-1 flex items-baseline gap-2">
-          <span className="text-sm font-medium text-ink">{formatPrice(product.price)}</span>
+          <span className="text-base font-medium text-fg">{formatPrice(product.price)}</span>
           {product.compareAtPrice && (
-            <span className="text-xs text-ink-muted line-through">
+            <span className="text-sm text-fg-muted line-through">
               {formatPrice(product.compareAtPrice)}
             </span>
           )}
         </div>
-        <p className="text-[11px] text-ink-muted">
+        <p className="text-[13px] text-fg-muted">
           or {site.instalments} × {formatPrice(instalmentOf(product.price))} interest-free
         </p>
 
@@ -95,7 +92,7 @@ export function ProductCard({
             />
           ))}
           {product.colors.length > 5 && (
-            <span className="text-[11px] text-ink-muted">+{product.colors.length - 5}</span>
+            <span className="text-[13px] text-fg-muted">+{product.colors.length - 5}</span>
           )}
         </div>
       </div>

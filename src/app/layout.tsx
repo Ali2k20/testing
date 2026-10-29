@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Badeen_Display, Bodoni_Moda, Hanken_Grotesk, Noto_Naskh_Arabic } from "next/font/google";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
@@ -9,17 +9,30 @@ import { StoreProvider } from "@/lib/store";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
 });
 
-const jost = Jost({
-  variable: "--font-jost",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const badeen = Badeen_Display({
+  variable: "--font-badeen",
+  subsets: ["arabic"],
+  weight: "400",
+  display: "swap",
+});
+
+const naskh = Noto_Naskh_Arabic({
+  variable: "--font-naskh",
+  subsets: ["arabic"],
   display: "swap",
 });
 
@@ -58,7 +71,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14110e",
+  themeColor: "#0e0d0c",
   width: "device-width",
   initialScale: 1,
 };
@@ -86,7 +99,7 @@ const organisationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={`${bodoni.variable} ${hanken.variable} ${badeen.variable} ${naskh.variable}`}>
       <body className="min-h-screen antialiased">
         <script
           type="application/ld+json"
@@ -95,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoreProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-fg focus:px-4 focus:py-2 focus:text-ground"
           >
             Skip to content
           </a>

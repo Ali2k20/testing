@@ -90,7 +90,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       />
 
       <nav aria-label="Breadcrumb" className="mx-auto max-w-[1400px] px-5 pt-6 lg:px-10">
-        <ol className="flex flex-wrap items-center gap-2 text-[11px] text-ink-muted">
+        <ol className="flex flex-wrap items-center gap-2 text-[13px] text-fg-muted">
           <li>
             <Link href="/" className="link-underline">
               Home
@@ -113,7 +113,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </>
           )}
           <li aria-hidden>/</li>
-          <li className="text-ink">{product.name}</li>
+          <li className="text-fg">{product.name}</li>
         </ol>
       </nav>
 

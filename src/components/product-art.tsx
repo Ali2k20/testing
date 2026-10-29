@@ -143,12 +143,12 @@ export function ProductArt({ product, color, view = "full", className }: Product
   const motif = motifBySlug[product.slug] ?? (product.category === "mukhawar" ? "zari" : "plain");
   const g = geometryByFit[product.fit];
   const isAccessory = product.category === "accessory";
-  // Ivory and pearl fabrics wash out against the default sand backdrop, so the
-  // studio ground steps down a shade behind them.
+  // A low-key studio: a dark ground with one pool of light behind the garment.
+  // Black and deep fabrics need a brighter pool to keep their silhouette; pale
+  // fabrics already glow, so their pool is dimmed to keep them from flaring.
   const pale = luminance(color.hex) > 0.7;
-  const backdrop = pale
-    ? { top: "#EDE4D6", mid: "#DCCDB8", bottom: "#C4B39A" }
-    : { top: "#F7F2EA", mid: "#EFE6D9", bottom: "#E1D5C4" };
+  const backdrop = { top: "#2B2723", mid: "#1D1A17", bottom: "#131110" };
+  const pool = pale ? 0.1 : luminance(color.hex) < 0.08 ? 0.34 : 0.24;
   const label = `${product.name} in ${color.label}`;
 
   return (
@@ -167,8 +167,8 @@ export function ProductArt({ product, color, view = "full", className }: Product
           <stop offset="100%" stopColor={backdrop.bottom} />
         </linearGradient>
         <radialGradient id={`vignette-${uid}`} cx="50%" cy="34%" r="72%">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#F3E7D3" stopOpacity={pool} />
+          <stop offset="100%" stopColor="#F3E7D3" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`cloth-${uid}`} x1="0.15" y1="0" x2="0.9" y2="1">
           <stop offset="0%" stopColor={color.sheen} />
@@ -219,8 +219,8 @@ export function ProductArt({ product, color, view = "full", className }: Product
             cy={g.hemY + 34}
             rx={g.hem + 60}
             ry="26"
-            fill="#8C7C67"
-            opacity="0.32"
+            fill="#000000"
+            opacity="0.55"
             filter={`url(#soft-${uid})`}
           />
 
@@ -503,7 +503,7 @@ function AccessoryArt({
   if (slug === "pearl-drop-belt") {
     return (
       <g>
-        <ellipse cx="300" cy="620" rx="180" ry="26" fill="#8C7C67" opacity="0.3" filter={`url(#soft-${uid})`} />
+        <ellipse cx="300" cy="620" rx="180" ry="26" fill="#000000" opacity="0.55" filter={`url(#soft-${uid})`} />
         <path
           d="M 120 300 C 220 200, 380 200, 480 300 C 540 360, 460 452, 340 430 C 220 408, 168 470, 220 540 C 260 594, 372 604, 452 566"
           fill="none"
@@ -536,7 +536,7 @@ function AccessoryArt({
   if (slug === "satin-underscarf") {
     return (
       <g>
-        <ellipse cx="300" cy="618" rx="150" ry="24" fill="#8C7C67" opacity="0.3" filter={`url(#soft-${uid})`} />
+        <ellipse cx="300" cy="618" rx="150" ry="24" fill="#000000" opacity="0.55" filter={`url(#soft-${uid})`} />
         <path
           d="M 300 176 C 404 176, 452 258, 452 356 C 452 470, 396 566, 300 578 C 204 566, 148 470, 148 356 C 148 258, 196 176, 300 176 Z"
           fill={`url(#cloth-${uid})`}
@@ -567,7 +567,7 @@ function AccessoryArt({
   const sway = ((seed % 18) - 9) * 0.8;
   return (
     <g>
-      <ellipse cx="300" cy="722" rx="150" ry="22" fill="#8C7C67" opacity="0.26" filter={`url(#soft-${uid})`} />
+      <ellipse cx="300" cy="722" rx="150" ry="22" fill="#000000" opacity="0.55" filter={`url(#soft-${uid})`} />
 
       {/* Rail */}
       <path d="M 120 152 L 480 152" stroke="#B9AB98" strokeWidth="5" strokeLinecap="round" />

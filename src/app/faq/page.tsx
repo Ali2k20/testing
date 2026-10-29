@@ -74,19 +74,19 @@ export default function FaqPage() {
         <dl className="divide-y divide-line">
           {faqs.map((faq) => (
             <div key={faq.question} className="py-8 first:pt-0">
-              <dt className="font-display text-2xl leading-snug font-light">{faq.question}</dt>
-              <dd className="mt-3 text-sm leading-relaxed text-ink-muted">{faq.answer}</dd>
+              <dt className="font-display text-2xl leading-snug">{faq.question}</dt>
+              <dd className="mt-3 text-sm leading-relaxed text-fg-muted">{faq.answer}</dd>
             </div>
           ))}
         </dl>
 
-        <p className="mt-12 border-t border-line pt-8 text-sm text-ink-muted">
+        <p className="mt-12 border-t border-line pt-8 text-sm text-fg-muted">
           Still stuck?{" "}
-          <Link href="/contact" className="underline hover:text-ink">
+          <Link href="/contact" className="underline hover:text-fg">
             Contact the studio
           </Link>{" "}
           or email{" "}
-          <a href={`mailto:${site.email}`} className="underline hover:text-ink">
+          <a href={`mailto:${site.email}`} className="underline hover:text-fg">
             {site.email}
           </a>
           .

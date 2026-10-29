@@ -31,7 +31,7 @@ export function CartDrawer() {
       aria-hidden={!cartOpen}
     >
       <div
-        className={`absolute inset-0 bg-ink/45 transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-black/65 transition-opacity duration-300 ${
           cartOpen ? "opacity-100" : "opacity-0"
         }`}
         onClick={closeCart}
@@ -41,13 +41,13 @@ export function CartDrawer() {
         tabIndex={-1}
         role="dialog"
         aria-label="Shopping bag"
-        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-ivory outline-none transition-transform duration-400 ease-out ${
+        className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-ground outline-none transition-transform duration-400 ease-out ${
           cartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <header className="flex items-center justify-between border-b border-line px-6 py-5">
-          <h2 className="font-display text-2xl font-light">
-            Your bag {count > 0 && <span className="text-ink-muted">({count})</span>}
+        <header className="flex items-center justify-between px-6 py-5">
+          <h2 className="font-display text-2xl">
+            Your bag {count > 0 && <span className="text-fg-muted">({count})</span>}
           </h2>
           <button type="button" onClick={closeCart} aria-label="Close bag" className="p-1.5">
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.4">
@@ -57,20 +57,20 @@ export function CartDrawer() {
         </header>
 
         {lines.length > 0 && (
-          <div className="border-b border-line-soft bg-sand px-6 py-4">
+          <div className="bg-panel px-6 py-4">
             {totals.amountToFreeShipping > 0 ? (
-              <p className="text-xs text-ink-soft">
+              <p className="text-[13px] text-fg-soft">
                 You are <strong>{formatPrice(totals.amountToFreeShipping)}</strong> away from free UAE
                 delivery.
               </p>
             ) : (
-              <p className="text-xs text-ink-soft">
+              <p className="text-[13px] text-fg-soft">
                 <strong>Free UAE delivery unlocked.</strong> Dubai orders arrive next day.
               </p>
             )}
             <div className="mt-2.5 h-[3px] w-full bg-line">
               <div
-                className="h-full bg-gold transition-[width] duration-500"
+                className="h-full bg-talli transition-[width] duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -80,8 +80,8 @@ export function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-6">
           {lines.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center gap-5 text-center">
-              <p className="font-display text-2xl font-light text-ink">Your bag is empty</p>
-              <p className="max-w-xs text-sm text-ink-muted">
+              <p className="font-display text-2xl text-fg">Your bag is empty</p>
+              <p className="max-w-xs text-sm text-fg-muted">
                 Start with the Noor Open Abaya — it is the first piece four out of five customers buy.
               </p>
               <Link href="/shop" onClick={closeCart} className={buttonClass("solid", "md")}>
@@ -98,12 +98,12 @@ export function CartDrawer() {
         </div>
 
         {lines.length > 0 && (
-          <footer className="border-t border-line px-6 py-5">
+          <footer className="bg-panel px-6 py-5">
             <div className="flex items-baseline justify-between">
-              <span className="eyebrow text-ink-muted">Subtotal</span>
+              <span className="eyebrow text-fg-muted">Subtotal</span>
               <span className="font-display text-2xl">{formatPrice(subtotal)}</span>
             </div>
-            <p className="mt-1 text-[11px] text-ink-muted">
+            <p className="mt-1 text-[13px] text-fg-muted">
               Delivery and any cash-on-delivery fee are calculated at checkout. VAT included.
             </p>
             <Link
@@ -133,21 +133,21 @@ function CartRow({ line }: { line: ResolvedLine }) {
 
   return (
     <li className="flex gap-4 py-5">
-      <Link href={`/product/${line.product.slug}`} className="h-28 w-22 shrink-0 overflow-hidden bg-sand">
+      <Link href={`/product/${line.product.slug}`} className="h-28 w-22 shrink-0 overflow-hidden bg-panel">
         <ProductArt product={line.product} color={color} className="h-full w-full" />
       </Link>
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="truncate font-display text-lg leading-tight">{line.product.name}</p>
-            <p className="mt-0.5 text-[11px] text-ink-muted">
+            <p className="mt-0.5 text-[13px] text-fg-muted">
               {color.label} · Size {line.size}
             </p>
           </div>
           <button
             type="button"
             onClick={() => removeLine(line.id)}
-            className="shrink-0 text-[11px] text-ink-muted underline hover:text-ink"
+            className="shrink-0 text-[13px] text-fg-muted underline hover:text-fg"
           >
             Remove
           </button>
@@ -157,16 +157,16 @@ function CartRow({ line }: { line: ResolvedLine }) {
             <button
               type="button"
               onClick={() => setQuantity(line.id, line.quantity - 1)}
-              className="px-2.5 py-1 text-ink-muted hover:text-ink"
+              className="px-2.5 py-1 text-fg-muted hover:text-fg"
               aria-label="Decrease quantity"
             >
               −
             </button>
-            <span className="min-w-7 text-center text-xs">{line.quantity}</span>
+            <span className="min-w-7 text-center text-[13px]">{line.quantity}</span>
             <button
               type="button"
               onClick={() => setQuantity(line.id, line.quantity + 1)}
-              className="px-2.5 py-1 text-ink-muted hover:text-ink"
+              className="px-2.5 py-1 text-fg-muted hover:text-fg"
               aria-label="Increase quantity"
             >
               +

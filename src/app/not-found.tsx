@@ -8,11 +8,11 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-[1400px] px-5 py-24 lg:px-10">
       <div className="text-center">
-        <p className="eyebrow text-gold">404</p>
-        <h1 className="mt-4 font-display text-5xl leading-tight font-light sm:text-6xl">
+        <p className="eyebrow text-fg-muted">404</p>
+        <h1 className="mt-4 font-display text-5xl leading-tight sm:text-6xl">
           This page has sold out
         </h1>
-        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-ink-muted">
+        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-fg-muted">
           The link may be old, or the piece may have finished its run. Here is what is moving right
           now instead.
         </p>

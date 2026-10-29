@@ -22,18 +22,18 @@ export default function ShippingReturnsPage() {
 
       <div className="mx-auto max-w-4xl px-5 py-16 lg:px-10">
         <section>
-          <h2 className="font-display text-3xl font-light">Delivery across the UAE</h2>
+          <h2 className="font-display text-3xl">Delivery across the UAE</h2>
           <div className="mt-7 overflow-x-auto">
             <table className="w-full min-w-[420px] border-collapse text-sm">
               <thead>
-                <tr className="border-b border-ink text-left">
-                  <th className="py-3 pr-4 text-[11px] tracking-[0.22em] uppercase text-ink-muted">
+                <tr className="border-b border-fg text-left">
+                  <th className="py-3 pr-4 text-[13px] text-fg-muted">
                     Emirate
                   </th>
-                  <th className="py-3 pr-4 text-[11px] tracking-[0.22em] uppercase text-ink-muted">
+                  <th className="py-3 pr-4 text-[13px] text-fg-muted">
                     Standard
                   </th>
-                  <th className="py-3 text-[11px] tracking-[0.22em] uppercase text-ink-muted">
+                  <th className="py-3 text-[13px] text-fg-muted">
                     Express
                   </th>
                 </tr>
@@ -42,8 +42,8 @@ export default function ShippingReturnsPage() {
                 {emirates.map((emirate) => (
                   <tr key={emirate} className="border-b border-line-soft">
                     <td className="py-4 pr-4">{emirate}</td>
-                    <td className="py-4 pr-4 text-ink-muted">{deliveryDays[emirate]}</td>
-                    <td className="py-4 text-ink-muted">
+                    <td className="py-4 pr-4 text-fg-muted">{deliveryDays[emirate]}</td>
+                    <td className="py-4 text-fg-muted">
                       {emirate === "Dubai" ? "Same day before 14:00" : "Next day"}
                     </td>
                   </tr>
@@ -51,7 +51,7 @@ export default function ShippingReturnsPage() {
               </tbody>
             </table>
           </div>
-          <ul className="mt-7 space-y-2.5 text-sm text-ink-muted">
+          <ul className="mt-7 space-y-2.5 text-sm text-fg-muted">
             <li>
               Standard delivery is {formatPrice(site.standardShipping)}, free on orders over{" "}
               {formatPrice(site.freeShippingThreshold)}.
@@ -66,8 +66,8 @@ export default function ShippingReturnsPage() {
         </section>
 
         <section className="mt-16">
-          <h2 className="font-display text-3xl font-light">Returns and exchanges</h2>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+          <h2 className="font-display text-3xl">Returns and exchanges</h2>
+          <p className="mt-4 text-sm leading-relaxed text-fg-muted">
             You have {site.returnWindowDays} days from delivery. Message us, and we book a courier to
             collect from your address at no cost to you. A size exchange is free. A refund goes back
             to the original payment method within five working days of the piece reaching the studio,
@@ -75,16 +75,16 @@ export default function ShippingReturnsPage() {
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             <div className="border border-line p-6">
-              <p className="eyebrow text-ink">We accept back</p>
-              <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+              <p className="eyebrow text-fg">We accept back</p>
+              <ul className="mt-3 space-y-2 text-sm text-fg-muted">
                 <li>Unworn pieces with the tag attached</li>
                 <li>Anything that arrived faulty or not as described</li>
                 <li>Wrong sizes, exchanged free of charge</li>
               </ul>
             </div>
             <div className="border border-line p-6">
-              <p className="eyebrow text-ink">We cannot accept back</p>
-              <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+              <p className="eyebrow text-fg">We cannot accept back</p>
+              <ul className="mt-3 space-y-2 text-sm text-fg-muted">
                 <li>Made-to-order pieces cut to your measurements</li>
                 <li>Personalised or monogrammed items</li>
                 <li>Underscarves and other close-fitting accessories, for hygiene</li>
@@ -93,9 +93,9 @@ export default function ShippingReturnsPage() {
           </div>
         </section>
 
-        <section className="mt-16 border border-line bg-sand p-8">
-          <h2 className="font-display text-3xl font-light">Start a return</h2>
-          <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+        <section className="mt-16 border border-line bg-panel p-8">
+          <h2 className="font-display text-3xl">Start a return</h2>
+          <p className="mt-3 text-sm leading-relaxed text-fg-muted">
             Have your order reference ready — it looks like FRS-XXXXXXXX and is on your confirmation
             email. Message the studio and we will arrange collection, usually for the next working
             day.

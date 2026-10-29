@@ -15,8 +15,8 @@ export default function CollectionsPage() {
   return (
     <>
       <header className="mx-auto max-w-[1400px] px-5 pb-10 pt-14 lg:px-10 lg:pt-20">
-        <p className="eyebrow text-gold">Browse by moment</p>
-        <h1 className="mt-4 font-display text-5xl leading-[1.02] font-light sm:text-6xl">
+        <p className="eyebrow text-fg-muted">Browse by moment</p>
+        <h1 className="mt-4 font-display text-5xl leading-[1.02] sm:text-6xl">
           Our collections
         </h1>
       </header>
@@ -29,9 +29,9 @@ export default function CollectionsPage() {
             <Link
               key={collection.slug}
               href={`/collections/${collection.slug}`}
-              className="group grid grid-cols-[140px_1fr] gap-6 border border-line p-5 transition-colors hover:bg-sand sm:grid-cols-[200px_1fr] sm:gap-8 sm:p-7"
+              className="group grid grid-cols-[140px_1fr] gap-6 border border-line p-5 transition-colors hover:bg-panel sm:grid-cols-[200px_1fr] sm:gap-8 sm:p-7"
             >
-              <div className="aspect-[3/4] overflow-hidden bg-sand">
+              <div className="aspect-[3/4] overflow-hidden bg-panel">
                 {hero && (
                   <ProductArt
                     product={hero}
@@ -44,9 +44,9 @@ export default function CollectionsPage() {
                 <p className="eyebrow" style={{ color: collection.accent }}>
                   {items.length} pieces
                 </p>
-                <h2 className="mt-2 font-display text-3xl font-light">{collection.name}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{collection.headline}</p>
-                <span className="eyebrow link-underline mt-4 inline-block text-ink">Explore</span>
+                <h2 className="mt-2 font-display text-3xl">{collection.name}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">{collection.headline}</p>
+                <span className="eyebrow link-underline mt-4 inline-block text-fg">Explore</span>
               </div>
             </Link>
           );
