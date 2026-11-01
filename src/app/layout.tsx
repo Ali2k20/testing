@@ -5,6 +5,7 @@ import { CartDrawer } from "@/components/cart-drawer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { StoreChrome } from "@/components/store-chrome";
 import { StoreProvider } from "@/lib/store";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -93,18 +94,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationSchema) }}
         />
         <StoreProvider>
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory"
+          <StoreChrome
+            before={
+              <>
+                <a
+                  href="#main"
+                  className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory"
+                >
+                  Skip to content
+                </a>
+                <AnnouncementBar />
+                <SiteHeader />
+              </>
+            }
+            after={
+              <>
+                <SiteFooter />
+                <CartDrawer />
+                <WhatsAppButton />
+              </>
+            }
           >
-            Skip to content
-          </a>
-          <AnnouncementBar />
-          <SiteHeader />
-          <main id="main">{children}</main>
-          <SiteFooter />
-          <CartDrawer />
-          <WhatsAppButton />
+            {children}
+          </StoreChrome>
         </StoreProvider>
       </body>
     </html>

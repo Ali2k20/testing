@@ -109,3 +109,57 @@ left as clearly marked seams:
 
 Brand details — phone, WhatsApp number, address, VAT rate, shipping thresholds and
 the returns window — all live in `src/lib/site.ts`.
+
+---
+
+# Safqa (صفقة) — B2B quoting & negotiation agent
+
+Lives at **`/safqa`** in this app, outside the storefront chrome. Safqa takes Gulf Arabic
+(Khaleeji) voice-note transcriptions or informal chat, normalises the dialect
+(كتاوت → relays, سفايف → brake pads, بلك → blocks…), checks stock, prices the order
+through hard margin guardrails, negotiates, and issues a signed quotation it can send
+on WhatsApp.
+
+## Try it
+
+```bash
+echo 'ANTHROPIC_API_KEY=sk-ant-...' > .env.local
+npm install
+npm run dev            # open http://localhost:3000/safqa
+```
+
+On Vercel, add `ANTHROPIC_API_KEY` under Project → Settings → Environment Variables
+and redeploy. Optional: `SAFQA_MODEL` (default `claude-opus-5-5`) and
+`SAFQA_QUOTE_SECRET` (signs quote links; falls back to the API key).
+
+Things worth testing:
+- The sample openers (Emirati, Saudi, Kuwaiti, English, and one that's ambiguous enough to need a clarifying question)
+- The quick pushback chips once a conversation is going: "من الآخر؟", a 20% competitor demand,
+  "let's double the quantity", "send me the quote on WhatsApp", and a prompt-injection attempt for 30%
+- The voice button (Chrome, Arabic, UAE) to dictate like a real voice note
+- Switching the client tier (new / repeat / key account) in the deal desk, which changes what is auto-approved
+
+## How it works
+
+| Piece | File |
+|---|---|
+| Agent loop (Claude tool use, streamed to the UI as NDJSON) | `src/app/api/safqa/route.ts` |
+| System prompt: dialect, extraction, negotiation strategy, tone | `src/lib/safqa/prompt.ts` |
+| Tools: `search_inventory`, `calculate_pricing`, `generate_quote_pdf`, `dispatch_whatsapp_quote`, `flag_for_human_review` | `src/lib/safqa/tools.ts` |
+| Pricing engine and guardrails | `src/lib/safqa/pricing.ts` |
+| Demo catalogue (auto parts, construction, industrial hardware, with Khaleeji aliases) | `src/lib/safqa/catalog.ts` |
+| Signed, stateless quotations (`/safqa/quote?q=…`, print to PDF) | `src/lib/safqa/quote.ts`, `src/app/safqa/quote/page.tsx` |
+| Console UI: chat, tool trace, live deal desk | `src/components/safqa/console.tsx` |
+
+**The guardrails live in code, not just in the prompt.** `calculate_pricing` auto-approves up to
+5% only for volume orders (≥ AED 2,000 or ≥ 50 units) or repeat/key clients. It allows
+5–12% as a negotiated concession and clamps anything beyond 12% to the floor with status
+`rejected_below_floor`. `generate_quote_pdf` recomputes every price from the SKUs and
+refuses a discount above 12%, so no conversation can produce an out-of-policy quote.
+The client tier comes from the CRM profile, not from anything the customer claims.
+
+UAE deliveries carry 5% VAT. GCC exports are zero-rated. Building materials go by truck,
+everything else by courier. UAE orders over AED 7,500 ship free.
+
+WhatsApp dispatch is simulated: it prepares a `wa.me` link with the message and quote, and
+the operator sends it with one tap. To go live, swap it for the WhatsApp Business API.
