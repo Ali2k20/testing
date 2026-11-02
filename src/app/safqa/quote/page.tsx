@@ -31,6 +31,7 @@ const t = {
     stockNote: "جزء من الكمية يورَّد من المورّد",
     tampered: "تنبيه: لم يتم التحقق من توقيع هذا العرض — قد يكون الرابط معدّلاً.",
     expedited: "توصيل مستعجل",
+    sameDay: "نفس اليوم",
   },
   en: {
     title: "Quotation",
@@ -58,6 +59,7 @@ const t = {
     stockNote: "part of the quantity ships from supplier",
     tampered: "Warning: this quotation's signature could not be verified — the link may have been altered.",
     expedited: "Expedited delivery",
+    sameDay: "Same day",
   },
 };
 
@@ -90,7 +92,11 @@ export default async function QuotePage({
   const p = quote.pricing;
   const ar = quote.language === "ar";
   const date = (iso: string) => new Date(iso).toLocaleDateString(ar ? "ar-AE" : "en-GB", { dateStyle: "medium" });
-  const eta = p.delivery.etaDays[0] === p.delivery.etaDays[1] ? `${p.delivery.etaDays[0]}` : `${p.delivery.etaDays[0]}–${p.delivery.etaDays[1]}`;
+  const [etaMin, etaMax] = p.delivery.etaDays;
+  const eta =
+    etaMax === 0
+      ? L.sameDay
+      : `${etaMin === etaMax ? etaMax : `${etaMin}–${etaMax}`} ${L.days}`;
 
   return (
     <div dir={ar ? "rtl" : "ltr"} className="mx-auto max-w-3xl px-4 py-8 print:max-w-none print:p-0">
@@ -125,7 +131,7 @@ export default async function QuotePage({
             <p className="text-[11px] text-[#55706a]">{L.deliverTo}</p>
             <p className="font-medium">{p.destination}</p>
             <p>
-              {L.eta}: {eta} {L.days}
+              {L.eta}: {eta}
               {p.delivery.expedited && ` · ${L.expedited}`}
             </p>
           </div>

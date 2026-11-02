@@ -657,9 +657,11 @@ export function SafqaConsole() {
                 <div className="rounded-md bg-[#f1f5f3] p-2">
                   <p className="text-[10.5px] text-[#55706a]">ETA</p>
                   <p className="font-semibold">
-                    {pricing.delivery.etaDays[0] === pricing.delivery.etaDays[1]
-                      ? `${pricing.delivery.etaDays[0]} day(s)`
-                      : `${pricing.delivery.etaDays[0]}–${pricing.delivery.etaDays[1]} days`}
+                    {pricing.delivery.etaDays[1] === 0
+                      ? "Same day"
+                      : pricing.delivery.etaDays[0] === pricing.delivery.etaDays[1]
+                        ? `${pricing.delivery.etaDays[0]} day(s)`
+                        : `${pricing.delivery.etaDays[0]}–${pricing.delivery.etaDays[1]} days`}
                     {pricing.delivery.expedited && " ⚡"}
                   </p>
                 </div>
